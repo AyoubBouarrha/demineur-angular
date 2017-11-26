@@ -1,0 +1,5 @@
+.table-perso-header, .table-perso-contenu{
+    display: grid;
+    grid-template-columns: 20% 20% 60%;
+    grid-gap: 0.5em;    
+}

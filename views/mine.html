@@ -1,0 +1,25 @@
+
+<link rel="stylesheet" href="styles/mine.css">
+<div ng-app="demineurApp" ng-controller="MineCtrl">
+
+    <div class="form-group">
+        <label for="ztext">Choisir une taille (entre 8 et 30):</label>
+        <input ng-model="taille" id="ztext" class="form-control" type="number" min="8" max="50">
+    </div>
+    <div class="container" style="text-align: center;">
+        <button ng-click="nouvellePartie()" type="button" class="btn btn-default btn-lg">Nouvelle Partie</button><br><br>
+        <div ng-show="perdu" class="alert alert-danger">
+            <strong>Perdu!</strong> Bonne chance la prochaine fois.
+        </div>
+        <table>
+            <tr ng-repeat="row in minefield.rows">
+                <td ng-repeat="spot in row.spots">
+                    <img ng-click="vider(spot)" ng-show="spot.isCovered" src="../images/covered.png" alt="">
+                    <img ng-click="vider(spot)" ng-show="!spot.isCovered && spot.content=='empty'" src="../images/{{spot.image}}.png" alt="">
+                    <img ng-show="!spot.isCovered && spot.content=='mine' " src="../images/{{spot.image}}.png" alt="">
+                </td>
+            </tr>
+        </table>
+    </div>
+
+</div>
